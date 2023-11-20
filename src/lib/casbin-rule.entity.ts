@@ -6,7 +6,8 @@ import { ObjectId } from 'mongodb';
 export class CasbinRule {
   public _id!: ObjectId;
 
-  public ptype!: string;
+  // existing database had pType verse ptype
+  public pType!: string;
 
   public v0!: string;
 

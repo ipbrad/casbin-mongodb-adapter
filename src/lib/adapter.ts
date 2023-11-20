@@ -223,7 +223,7 @@ export class MongoAdapter implements FilteredAdapter, BatchAdapter {
   ) {
     const line = {} as any;
 
-    line.ptype = ptype;
+    line.pType = ptype;
 
     if (fieldIndex <= 0 && 0 < fieldIndex + fieldValues.length) {
       line.v0 = fieldValues[0 - fieldIndex];
@@ -249,7 +249,7 @@ export class MongoAdapter implements FilteredAdapter, BatchAdapter {
   public async createDBIndex() {
     try {
       const indexFields: string[] = [
-        'ptype',
+        'pType',
         'v0',
         'v1',
         'v2',
@@ -311,7 +311,7 @@ export class MongoAdapter implements FilteredAdapter, BatchAdapter {
 
   private loadPolicyLine(line: CasbinRule, model: Model) {
     const result =
-      line.ptype +
+      line.pType +
       ', ' +
       [line.v0, line.v1, line.v2, line.v3, line.v4, line.v5]
         .filter(n => n)
@@ -322,7 +322,7 @@ export class MongoAdapter implements FilteredAdapter, BatchAdapter {
   private savePolicyLine(ptype: string, rule: string[]): CasbinRule {
     const line = new CasbinRule();
 
-    line.ptype = ptype;
+    line.pType = ptype;
     if (rule.length > 0) {
       line.v0 = rule[0];
     }
